@@ -2,6 +2,8 @@
 
 #include <type_traits>
 
+#include "decdynlib/decdynlib/os_info.hpp"
+
 namespace ddl
 {
 	constexpr size_t ct_strlen(const char* a)
@@ -27,14 +29,23 @@ namespace ddl
 	};
 
 	template <const char* Str, size_t... Idx>
-	constexpr auto apply_ct_string(std::index_sequence<Idx...>)
+	constexpr auto apply_ct_string(std::index_sequence<Idx...>) ->
+	ct_string<Str[Idx]...>
 	{
 		return ct_string<Str[Idx]...>{};
 	}
 
 	template <const char* Str>
-	constexpr auto make_ct_string()
+	using ct_string_t = decltype(apply_ct_string<Str>(std::make_index_sequence<ct_strlen(Str)>{}));
+
+	template <const char* Identifier, typename TExport>
+	struct export_info<const char*, Identifier, TExport>
 	{
-		return apply_ct_string<Str>(std::make_index_sequence<ct_strlen(Str)>());
-	}
+		static_assert(
+			os::Windows == os_type || os::Linux == os_type, 
+			"string export isn't available to this type of OS")
+		
+		using identifier = ct_string_t<Identifier>;
+		using export_t = TExport;
+	};
 }

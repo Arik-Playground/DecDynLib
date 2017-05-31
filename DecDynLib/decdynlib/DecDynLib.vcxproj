@@ -128,7 +128,7 @@
     <ClInclude Include="decdynlib\ordinal_export.hpp" />
     <ClInclude Include="decdynlib\os_info.hpp" />
     <ClInclude Include="decdynlib\string_export.hpp" />
-    <ClInclude Include="decdynlib\type_map.hpp" />
+    <ClInclude Include="decdynlib\export_map.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dummy.cpp" />
