@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26430.4
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DecDynLib", "DecDynLib.vcxproj", "{E705A2D9-9BB5-4638-BFFA-115E7FB5C08F}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DecDynLib", "decdynlib\DecDynLib.vcxproj", "{E705A2D9-9BB5-4638-BFFA-115E7FB5C08F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
