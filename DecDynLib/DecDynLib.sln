@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.26430.4
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DecDynLib", "decdynlib\DecDynLib.vcxproj", "{E705A2D9-9BB5-4638-BFFA-115E7FB5C08F}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DecDynLib_StaticTests", "..\DecDynLib_StaticTests\DecDynLib_StaticTests.vcxproj", "{1EC55A1B-7DB2-4496-B85A-3EBC3380F3EF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -21,6 +23,14 @@ Global
 		{E705A2D9-9BB5-4638-BFFA-115E7FB5C08F}.Release|x64.Build.0 = Release|x64
 		{E705A2D9-9BB5-4638-BFFA-115E7FB5C08F}.Release|x86.ActiveCfg = Release|Win32
 		{E705A2D9-9BB5-4638-BFFA-115E7FB5C08F}.Release|x86.Build.0 = Release|Win32
+		{1EC55A1B-7DB2-4496-B85A-3EBC3380F3EF}.Debug|x64.ActiveCfg = Debug|x64
+		{1EC55A1B-7DB2-4496-B85A-3EBC3380F3EF}.Debug|x64.Build.0 = Debug|x64
+		{1EC55A1B-7DB2-4496-B85A-3EBC3380F3EF}.Debug|x86.ActiveCfg = Debug|Win32
+		{1EC55A1B-7DB2-4496-B85A-3EBC3380F3EF}.Debug|x86.Build.0 = Debug|Win32
+		{1EC55A1B-7DB2-4496-B85A-3EBC3380F3EF}.Release|x64.ActiveCfg = Release|x64
+		{1EC55A1B-7DB2-4496-B85A-3EBC3380F3EF}.Release|x64.Build.0 = Release|x64
+		{1EC55A1B-7DB2-4496-B85A-3EBC3380F3EF}.Release|x86.ActiveCfg = Release|Win32
+		{1EC55A1B-7DB2-4496-B85A-3EBC3380F3EF}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,41 +1,54 @@
 #pragma once
 
-#include <cinttypes>
-#include <type_traits>
-
-#include "decdynlib/decdynlib/os_info.hpp"
+#include <tuple>
 
 namespace ddl
 {
-	template <typename TIdentifier, TIdentifier Identifier, typename TExport>
-	struct export_info;
+	template <typename Id, typename Export>
+	struct export_info_t {};
 
-	template <typename... TExports>
-	struct export_map;
+	template <typename Export>
+	struct export_t 
+	{
+		using type = Export;
+	};
 
-	template <typename TIdentifier, TIdentifiers Identifier>
-	struct export_not_found_tag;
+	struct export_not_found {};
+
+	template <typename... Exports>
+	struct exports_map;
+
+	template <>
+	struct exports_map<>
+	{
+
+		template <typename ExportId>
+		constexpr static auto find_export(ExportId)
+		{
+			return export_t<export_not_found>{};
+		}
+	};
+
+	template <typename Id, typename TExport, typename... Ids, typename... TExports>
+	struct exports_map<export_info_t<Id, TExport>, export_info_t<Ids, TExports>...>
+	{
+		template <typename ExportId>
+		constexpr static auto find_export(ExportId eid)
+		{
+			if constexpr(eid == Id{}) return export_t<TExport>{};
+			else return exports_map<export_info_t<Ids, TExports>...>::find_export(eid);
+		}
+	};
+
+	template <typename Export, typename Id>
+	constexpr export_info_t<Id, Export> export_info(Id)
+	{
+		return {};
+	}
+
+	template <typename... Ids, typename... TExports>
+	constexpr exports_map<export_info_t<Ids, TExports>...> make_export_map(export_info_t<Ids, TExports>...)
+	{
+		return {};
+	}
 }
-
-template <
-	typename TIdentifier, 
-	TIdentifiers Identifier, 
-	typename TExport, 
-	typename... TIdentifiers, 
-	TIdentifiers... Identifiers, 
-	typename... TExports>
-struct ddl::export_map<export_info<TIdentifier, Identifier, TExport>, export_info<TIdentifiers, Identifiers, TExports>...>
-{
-	template <typename TRhsIdentifier, TRhsIdentifier RhsIdentifier>
-	using locate_export =
-		std::conditional_t < (export_info<TIdentifier, Identifier, TExport>::identifier{} == export_info<TRhsIdentifier, RhsIdentifier, void>::identifier{}),
-		TExport,
-		export_map<export_info<TIdentifiers, Identifiers, TExports>...>::locate_export<TRhsIdentifier, RhsIdentifier>>;
-};
-
-template <>
-struct ddl::export_map<>
-{
-	template <typename TRhsIdentifier, TRhsIdentifier RhsIdentifier>
-	using locate_export = export_not_found_tag<TRhsIdentifier, RhsIdentifier>;
-};

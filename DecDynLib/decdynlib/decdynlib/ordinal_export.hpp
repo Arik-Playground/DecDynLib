@@ -3,22 +3,27 @@
 #include <cinttypes>
 #include <type_traits>
 
-#include "decdynlib/decdynlib/type_map.hpp"
-
-template <typename T, T Ordinal, typename TExport>
-struct ddl::export_info<T, Ordinal, std::enable_if_t<(std::_Is_integral<T>::value), TExport>>
+namespace ddl
 {
-	static_assert(os::Windows == os_type, "Ordinal export isn't available to this OS");
-	constexpr if (os::Windows == os_type)
+	namespace literals
 	{
-		static_assert(
-			(Ordinal >= 0)		&& 
-			(Ordinal <= 0xffff), 
-			"Invalid ordinal value for Windows");
 
-		using ordinal_t = uint32_t;
+		template <uint16_t val = 0>
+		constexpr auto _parse()
+		{
+			return std::integral_constant<uint16_t, val>{};
+		}
+
+		template <uint16_t val = 0, char Head, char... Rest>
+		constexpr auto _parse()
+		{
+			return _parse<Rest..., (val * 10) + (Head & 1111)>();
+		}
+
+		template <char... Chrs>
+		constexpr auto operator"" _eid()
+		{
+			return _parse<Chrs...>();
+		}
 	}
-
-	using identifier = std::integral_constant<ordinal_t, Ordinal>;
-	using export_t = TExport;
-};
+}

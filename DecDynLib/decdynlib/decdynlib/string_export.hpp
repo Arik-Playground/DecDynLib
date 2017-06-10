@@ -1,51 +1,28 @@
 #pragma once
 
+#include <utility>
 #include <type_traits>
-
-#include "decdynlib/decdynlib/os_info.hpp"
 
 namespace ddl
 {
-	constexpr size_t ct_strlen(const char* a)
+	template <typename TChr, TChr... Chrs>
+	struct _ct_string
 	{
-		size_t i = 0;
-		while (a[i] != '\0') ++i;
-		return i + 1;
+		constexpr static const TChr value[] = { Chrs... };
+	};
+
+	template <typename TChrA, TChrA... ChrsA, typename TChrB, TChrB... ChrsB>
+	constexpr bool operator==(_ct_string<TChrA, ChrsA...> a, _ct_string<TChrB, ChrsB...> b)
+	{
+		return std::is_same<decltype(a), decltype(b)>{};
 	}
 
-	// ct_string is heavily borrowed from hana & mpl string, i'm reimplementing it to avoid 
-	// having dependencies
-	template <char... Chrs>
-	class ct_string
+	namespace literals
 	{
-	public:
-		template <char... RhsChrs>
-		constexpr bool operator== (const string<RhsChrs>&) const
+		template <typename TChr, TChr... Chrs>
+		constexpr _ct_string<TChr, Chrs...> operator"" _eid()
 		{
-			return std::is_same_v<string<Chrs>, string<RhsChrs>>;
+			return {};
 		}
-
-		constexpr static const char value[] = { Chrs... };
-	};
-
-	template <const char* Str, size_t... Idx>
-	constexpr auto apply_ct_string(std::index_sequence<Idx...>) ->
-	ct_string<Str[Idx]...>
-	{
-		return ct_string<Str[Idx]...>{};
 	}
-
-	template <const char* Str>
-	using ct_string_t = decltype(apply_ct_string<Str>(std::make_index_sequence<ct_strlen(Str)>{}));
-
-	template <const char* Identifier, typename TExport>
-	struct export_info<const char*, Identifier, TExport>
-	{
-		static_assert(
-			os::Windows == os_type || os::Linux == os_type, 
-			"string export isn't available to this type of OS")
-		
-		using identifier = ct_string_t<Identifier>;
-		using export_t = TExport;
-	};
 }
