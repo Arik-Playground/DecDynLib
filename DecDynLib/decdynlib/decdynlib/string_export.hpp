@@ -11,10 +11,10 @@ namespace ddl
 		constexpr static const TChr value[] = { Chrs... };
 	};
 
-	template <typename TChrA, TChrA... ChrsA, typename TChrB, TChrB... ChrsB>
-	constexpr bool operator==(_ct_string<TChrA, ChrsA...> a, _ct_string<TChrB, ChrsB...> b)
+	template <typename TChrA, TChrA... ChrsA, typename TRhs>
+	constexpr bool operator==(_ct_string<TChrA, ChrsA...> a, TRhs)
 	{
-		return std::is_same<decltype(a), decltype(b)>{};
+		return std::is_same<decltype(a), TRhs>{};
 	}
 
 	namespace literals

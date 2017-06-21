@@ -7,11 +7,22 @@ namespace ddl
 	template <typename Id, typename Export>
 	struct export_info_t {};
 
-	template <typename Export>
-	struct export_t 
+	template <typename T>
+	struct type_t 
 	{
-		using type = Export;
+		using type = T;
 	};
+
+	template <typename TA, typename TB>
+	constexpr bool operator== (type_t<TA>, type_t<TB>)
+	{
+		return std::is_same_v<TA, TB>;
+	}
+	template <typename TA, typename TB>
+	constexpr bool operator!= (type_t<TA> a, type_t<TB> b)
+	{
+		return !(a==b);
+	}
 
 	struct export_not_found {};
 
@@ -25,7 +36,7 @@ namespace ddl
 		template <typename ExportId>
 		constexpr static auto find_export(ExportId)
 		{
-			return export_t<export_not_found>{};
+			return type_t<export_not_found>{};
 		}
 	};
 
@@ -35,7 +46,7 @@ namespace ddl
 		template <typename ExportId>
 		constexpr static auto find_export(ExportId eid)
 		{
-			if constexpr(eid == Id{}) return export_t<TExport>{};
+			if constexpr(eid == Id{}) return type_t<TExport>{};
 			else return exports_map<export_info_t<Ids, TExports>...>::find_export(eid);
 		}
 	};

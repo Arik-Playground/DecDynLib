@@ -5,25 +5,38 @@
 
 namespace ddl
 {
+	template <size_t Val>
+	struct ordinal_id : public std::integral_constant<size_t, Val>
+	{};
+
+	template <size_t Val, typename TRhs>
+	constexpr bool operator==(ordinal_id<Val> a, TRhs)
+	{
+		return std::is_same<decltype(a), TRhs>{};
+	}
+
 	namespace literals
 	{
 
-		template <uint16_t val = 0>
+		template <size_t Val>
 		constexpr auto _parse()
 		{
-			return std::integral_constant<uint16_t, val>{};
+			return ordinal_id<Val>{};
 		}
 
-		template <uint16_t val = 0, char Head, char... Rest>
+		template <size_t Val, char Head, char... Rest>
 		constexpr auto _parse()
 		{
-			return _parse<Rest..., (val * 10) + (Head & 1111)>();
+			static_assert(
+				Head >= '0' && Head <= '9',
+				"Ordinal export can only be a decimal number");
+			return _parse<(Val * 10) + (Head - '0'), Rest...>();
 		}
 
 		template <char... Chrs>
 		constexpr auto operator"" _eid()
 		{
-			return _parse<Chrs...>();
+			return _parse<0, Chrs...>();
 		}
 	}
 }
