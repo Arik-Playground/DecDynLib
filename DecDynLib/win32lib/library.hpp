@@ -4,7 +4,10 @@
 
 #include <experimental\filesystem>
 
-#include "decdynlib\basic_library.hpp"
+#include "DecDynLib\basic_library.hpp"
+#include "DecDynLib\decdynlib\exports_map.hpp"
+#include "DecDynLib\decdynlib\string_export.hpp"
+#include "DecDynLib\decdynlib\ordinal_export.hpp"
 
 namespace ddl
 {
@@ -47,7 +50,7 @@ namespace ddl
 
 		template <typename ExportMap>
 		static std::optional<basic_library<::ddl::win32, ExportMap>> 
-		library(const std::experimental::filesystem::path& lib_path)
+		library(ExportMap, const std::experimental::filesystem::path& lib_path)
 		{
 			auto lib_handle = traits::load(lib_path);
 			if (NULL == lib_handle) return {};

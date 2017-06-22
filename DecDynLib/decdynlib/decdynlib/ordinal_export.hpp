@@ -3,17 +3,13 @@
 #include <cinttypes>
 #include <type_traits>
 
+#include "DecDynLib\decdynlib\exports_map.hpp"
+
 namespace ddl
 {
 	template <size_t Val>
 	struct ordinal_id : public std::integral_constant<size_t, Val>
 	{};
-
-	template <size_t Val, typename TRhs>
-	constexpr bool operator==(ordinal_id<Val> a, TRhs)
-	{
-		return std::is_same<decltype(a), TRhs>{};
-	}
 
 	namespace literals
 	{
@@ -21,7 +17,7 @@ namespace ddl
 		template <size_t Val>
 		constexpr auto _parse()
 		{
-			return ordinal_id<Val>{};
+			return export_id<ordinal_id<Val>>{};
 		}
 
 		template <size_t Val, char Head, char... Rest>

@@ -4,6 +4,22 @@
 
 namespace ddl
 {
+	template <typename T>
+	struct export_id : T
+	{};
+
+	template <typename TA, typename TB >
+	constexpr bool operator== (export_id<TA>, export_id<TB>)
+	{
+		return std::is_same_v<TA, TB>;
+	}
+
+	template <typename TA, typename TB >
+	constexpr bool operator!= (export_id<TA> a, export_id<TB> b)
+	{
+		return !(a == b);
+	}
+
 	template <typename Id, typename Export>
 	struct export_info_t {};
 
@@ -58,7 +74,7 @@ namespace ddl
 	}
 
 	template <typename... Ids, typename... TExports>
-	constexpr exports_map<export_info_t<Ids, TExports>...> make_export_map(export_info_t<Ids, TExports>...)
+	constexpr exports_map<export_info_t<Ids, TExports>...> make_exports_map(export_info_t<Ids, TExports>...)
 	{
 		return {};
 	}

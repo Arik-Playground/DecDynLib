@@ -1,4 +1,4 @@
-#include "win32_library.hpp"
+#include "library.hpp"
 
 ddl::win32::traits::handle_t ddl::win32::traits::load(
 	const std::experimental::filesystem::path & lib_path)

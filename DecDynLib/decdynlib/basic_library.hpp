@@ -3,7 +3,7 @@
 #include <optional>
 #include <experimental\filesystem>
 
-#include "decdynlib\decdynlib\export_map.hpp"
+#include "DecDynLib\decdynlib\exports_map.hpp"
 
 namespace ddl
 {
