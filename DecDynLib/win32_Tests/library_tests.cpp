@@ -26,6 +26,4 @@ int main()
 	assert(create_file_string == raw_create_file);
 	auto raw_ordinal_export = (fake_export*)GetProcAddress(raw_kernel32, (LPCSTR)123);
 	assert(ordinal_export == raw_ordinal_export);
-	kernel32_ddl["CreateFileW"_eid](L"blabla", GENERIC_ALL, 0, nullptr, OPEN_EXISTING, 0, NULL);
-	
 }
