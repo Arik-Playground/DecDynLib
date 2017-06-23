@@ -84,6 +84,7 @@
       <MinimalRebuild />
       <LanguageStandard>stdcpplatest</LanguageStandard>
       <AdditionalOptions>-Xclang -Wno-gnu-string-literal-operator-template %(AdditionalOptions)</AdditionalOptions>
+      <WholeProgramOptimization />
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -99,6 +100,7 @@
       <MinimalRebuild />
       <LanguageStandard>stdcpplatest</LanguageStandard>
       <AdditionalOptions>-Xclang -Wno-gnu-string-literal-operator-template %(AdditionalOptions)</AdditionalOptions>
+      <WholeProgramOptimization />
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -115,6 +117,7 @@
       <MinimalRebuild />
       <LanguageStandard>stdcpplatest</LanguageStandard>
       <AdditionalOptions>-Xclang -Wno-gnu-string-literal-operator-template %(AdditionalOptions)</AdditionalOptions>
+      <WholeProgramOptimization />
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
@@ -135,6 +138,7 @@
       <MinimalRebuild />
       <LanguageStandard>stdcpplatest</LanguageStandard>
       <AdditionalOptions>-Xclang -Wno-gnu-string-literal-operator-template %(AdditionalOptions)</AdditionalOptions>
+      <WholeProgramOptimization />
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>

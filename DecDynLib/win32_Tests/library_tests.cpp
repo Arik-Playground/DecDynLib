@@ -6,13 +6,14 @@ struct fake_export
 {};
 
 using namespace ddl::literals;
-constexpr const auto g_kernel32_map = ddl::make_exports_map(
-	ddl::export_info<decltype(::CreateFileW)>("CreateFileW"_eid),
-	ddl::export_info<fake_export>(123_eid)
-);
 
 int main()
 {
+	auto g_kernel32_map = ddl::make_exports_map(
+		ddl::export_info<decltype(::CreateFileW)>("CreateFileW"_eid),
+		ddl::export_info<fake_export>(123_eid)
+	);
+
 	auto opt_kernel32 = ddl::win32::library(g_kernel32_map, "kernel32.dll");
 	assert(opt_kernel32);
 	auto& kernel32_ddl = *opt_kernel32;
@@ -25,5 +26,6 @@ int main()
 	assert(create_file_string == raw_create_file);
 	auto raw_ordinal_export = (fake_export*)GetProcAddress(raw_kernel32, (LPCSTR)123);
 	assert(ordinal_export == raw_ordinal_export);
+	kernel32_ddl["CreateFileW"_eid](L"blabla", GENERIC_ALL, 0, nullptr, OPEN_EXISTING, 0, NULL);
 	
 }

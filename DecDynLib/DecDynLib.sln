@@ -11,6 +11,11 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DecDynLib_Tests", "DecDynLi
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "win32_Tests", "win32_Tests\win32_Tests.vcxproj", "{85EFBD2A-204B-4999-A0BB-6773FDE12D4A}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{0A3B0A86-F197-4FC7-AE49-ABE2298339FE}"
+	ProjectSection(SolutionItems) = preProject
+		ReadMe.md = ReadMe.md
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		DecDynLib\DecDynLib.vcxitems*{6cc5c089-b7a1-4e61-9481-e9a68fe5fec0}*SharedItemsImports = 9

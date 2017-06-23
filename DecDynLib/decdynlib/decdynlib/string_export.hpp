@@ -10,7 +10,7 @@ namespace ddl
 	template <typename TChr, TChr... Chrs>
 	struct _ct_string
 	{
-		constexpr static const TChr value[] = { Chrs... };
+		constexpr static const TChr value[] = { Chrs..., TChr(0) };
 	};
 
 	namespace literals

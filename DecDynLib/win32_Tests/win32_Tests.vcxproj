@@ -95,6 +95,7 @@
       <MinimalRebuild />
       <LanguageStandard>stdcpplatest</LanguageStandard>
       <AdditionalOptions>-Xclang -Wno-gnu-string-literal-operator-template %(AdditionalOptions)</AdditionalOptions>
+      <WholeProgramOptimization />
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -113,6 +114,7 @@
       <MinimalRebuild />
       <LanguageStandard>stdcpplatest</LanguageStandard>
       <AdditionalOptions>-Xclang -Wno-gnu-string-literal-operator-template %(AdditionalOptions)</AdditionalOptions>
+      <WholeProgramOptimization />
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -132,6 +134,7 @@
       <MinimalRebuild />
       <LanguageStandard>stdcpplatest</LanguageStandard>
       <AdditionalOptions>-Xclang -Wno-gnu-string-literal-operator-template %(AdditionalOptions)</AdditionalOptions>
+      <WholeProgramOptimization />
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -153,6 +156,7 @@
       <MinimalRebuild />
       <LanguageStandard>stdcpplatest</LanguageStandard>
       <AdditionalOptions>-Xclang -Wno-gnu-string-literal-operator-template %(AdditionalOptions)</AdditionalOptions>
+      <WholeProgramOptimization />
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
