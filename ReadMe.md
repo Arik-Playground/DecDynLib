@@ -4,6 +4,10 @@
 
 DecDynLib is a utility library that allows to load a library at run time and still keep the 'type-safty' that comes with compile time library linkage.
 
+## Installation
+For *out of the box* compilation with vs2017 you wil have to use my other project:
+[LlvmForVs2017](https://github.com/WubbaLubba/LlvmForVS2017)
+
 ## Using the library
 
 ### Step 1 - Defining the library
@@ -71,14 +75,14 @@ And finally this line locates the desired function in the dll and returns a poin
 *Not supported yet*
 
 ## Dependencies
-This libraries has no external dependencies although there is a possibilty where the tests will use externel testing library
+Other than [LlvmForVs2017](https://github.com/WubbaLubba/LlvmForVS2017) **DecDynLib** has no external dependencies although there is a possibilty that the tests will use externel testing library in the future.
 
 ## Author
-- Me! (JK... Noam Arye Nassi)
+- **Noam Arye Nassi** - [WubbaLubba](https://github.com/WubbaLubba)
 
 ## Important notes
 Most of the code in this library uses tricks from Louis Dionne talks (Youtube is full of those),
-The reason i'm not simply using hana in my library is to avoid dependencies.
+The reason i'm not simply using hana in my library is to avoid external dependencies.
 
 ## License
 The author of this repo is not responsible for any result that comes from using the code in it.
