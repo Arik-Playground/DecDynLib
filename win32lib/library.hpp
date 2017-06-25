@@ -4,10 +4,10 @@
 
 #include <experimental\filesystem>
 
-#include "DecDynLib\basic_library.hpp"
-#include "DecDynLib\decdynlib\exports_map.hpp"
-#include "DecDynLib\decdynlib\string_export.hpp"
-#include "DecDynLib\decdynlib\ordinal_export.hpp"
+#include "decdynlib\basic_library.hpp"
+#include "decdynlib\decdynlib\exports_map.hpp"
+#include "decdynlib\decdynlib\string_export.hpp"
+#include "decdynlib\decdynlib\ordinal_export.hpp"
 
 namespace ddl
 {

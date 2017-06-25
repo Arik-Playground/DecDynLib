@@ -1,9 +1,9 @@
 #include <cassert>
 #include <cstring>
 
-#include "DecDynLib\decdynlib\exports_map.hpp"
-#include "DecDynLib\decdynlib\string_export.hpp"
-#include "DecDynLib\decdynlib\ordinal_export.hpp"
+#include "decdynlib\decdynlib\exports_map.hpp"
+#include "decdynlib\decdynlib\string_export.hpp"
+#include "decdynlib\decdynlib\ordinal_export.hpp"
 
 using ddl::type_t;
 using ddl::export_info;
