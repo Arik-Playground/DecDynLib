@@ -89,7 +89,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(SolutionDir)..\;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir);</AdditionalIncludeDirectories>
       <DiagnosticsFormat />
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <MinimalRebuild />
@@ -108,7 +108,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(SolutionDir)..\;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir);</AdditionalIncludeDirectories>
       <DiagnosticsFormat />
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <MinimalRebuild />
@@ -129,7 +129,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(SolutionDir)..\;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir);</AdditionalIncludeDirectories>
       <DiagnosticsFormat />
       <MinimalRebuild />
       <LanguageStandard>stdcpplatest</LanguageStandard>
@@ -151,7 +151,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(SolutionDir)..\;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir);</AdditionalIncludeDirectories>
       <DiagnosticsFormat />
       <MinimalRebuild />
       <LanguageStandard>stdcpplatest</LanguageStandard>
