@@ -3,7 +3,7 @@
 #include <optional>
 #include <experimental\filesystem>
 
-#include "DecDynLib\decdynlib\exports_map.hpp"
+#include "decdynlib\decdynlib\exports_map.hpp"
 
 namespace ddl
 {
@@ -45,7 +45,13 @@ namespace ddl
 				"Export not found.");
 
 			// Returning a pointer because there is no such thing ref optional
-			return (typename decltype(export_type)::type*)Platform::traits::locate(m_lib, Id::value);
+			return reinterpret_cast<typename decltype(export_type)::type*>(
+				Platform::traits::locate(m_lib, Id::value));
+		}
+
+		auto get_raw_handle() const
+		{
+			return m_lib;
 		}
 
 	private:

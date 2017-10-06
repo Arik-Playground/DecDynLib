@@ -3,24 +3,24 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26430.13
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DecDynLib", "DecDynLib\DecDynLib.vcxitems", "{6CC5C089-B7A1-4E61-9481-E9A68FE5FEC0}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "decdynlib", "decdynlib\decdynlib.vcxitems", "{6CC5C089-B7A1-4E61-9481-E9A68FE5FEC0}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "win32lib", "win32lib\win32lib.vcxproj", "{F33C7FAC-C96C-4124-810F-F53108DEC9C0}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DecDynLib_Tests", "DecDynLib_Tests\DecDynLib_Tests.vcxproj", "{9B46C083-7CA3-4EF4-A8C3-5DF5C489D45D}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "decdynlib_tests", "decdynlib_tests\decdynlib_tests.vcxproj", "{9B46C083-7CA3-4EF4-A8C3-5DF5C489D45D}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "win32_Tests", "win32_Tests\win32_Tests.vcxproj", "{85EFBD2A-204B-4999-A0BB-6773FDE12D4A}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "win32_tests", "win32_tests\win32_tests.vcxproj", "{85EFBD2A-204B-4999-A0BB-6773FDE12D4A}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{0A3B0A86-F197-4FC7-AE49-ABE2298339FE}"
 	ProjectSection(SolutionItems) = preProject
-		..\ReadMe.md = ..\ReadMe.md
+		README.md = README.md
 	EndProjectSection
 EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
-		DecDynLib\DecDynLib.vcxitems*{6cc5c089-b7a1-4e61-9481-e9a68fe5fec0}*SharedItemsImports = 9
-		DecDynLib\DecDynLib.vcxitems*{9b46c083-7ca3-4ef4-a8c3-5df5c489d45d}*SharedItemsImports = 4
-		DecDynLib\DecDynLib.vcxitems*{f33c7fac-c96c-4124-810f-f53108dec9c0}*SharedItemsImports = 4
+		decdynlib\decdynlib.vcxitems*{6cc5c089-b7a1-4e61-9481-e9a68fe5fec0}*SharedItemsImports = 9
+		decdynlib\decdynlib.vcxitems*{9b46c083-7ca3-4ef4-a8c3-5df5c489d45d}*SharedItemsImports = 4
+		decdynlib\decdynlib.vcxitems*{f33c7fac-c96c-4124-810f-f53108dec9c0}*SharedItemsImports = 4
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64

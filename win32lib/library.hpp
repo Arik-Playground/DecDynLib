@@ -4,17 +4,18 @@
 
 #include <experimental\filesystem>
 
-#include "DecDynLib\basic_library.hpp"
-#include "DecDynLib\decdynlib\exports_map.hpp"
-#include "DecDynLib\decdynlib\string_export.hpp"
-#include "DecDynLib\decdynlib\ordinal_export.hpp"
+#include "decdynlib\basic_library.hpp"
+#include "decdynlib\decdynlib\exports_map.hpp"
+#include "decdynlib\decdynlib\string_export.hpp"
+#include "decdynlib\decdynlib\ordinal_export.hpp"
 
 namespace ddl
 {
-	// The win32 struct should have been a namespace but you can't use a namespace as template argument.
 	struct win32
 	{
-		// The traits struct should have been a namespace but you can't define a reference inside a struct.
+		template <typename ExportMap>
+		using library = ddl::basic_library<::ddl::win32, ExportMap>;
+
 		struct traits
 		{
 			using handle_t = HMODULE;
@@ -49,8 +50,8 @@ namespace ddl
 		};
 
 		template <typename ExportMap>
-		static std::optional<basic_library<::ddl::win32, ExportMap>> 
-		library(ExportMap, const std::experimental::filesystem::path& lib_path)
+		static std::optional<library<ExportMap>>
+		load_library(ExportMap, const std::experimental::filesystem::path& lib_path)
 		{
 			auto lib_handle = traits::load(lib_path);
 			if (NULL == lib_handle) return {};

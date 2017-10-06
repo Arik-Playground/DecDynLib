@@ -70,6 +70,7 @@ namespace ddl
 	template <typename Export, typename Id>
 	constexpr export_info_t<Id, Export> export_info(Id)
 	{
+		static_assert(!std::is_reference_v<Export>, "Library cant export an reference type");
 		return {};
 	}
 

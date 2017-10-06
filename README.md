@@ -48,10 +48,10 @@ Using the export map from before is quite easy with platform libraries
 Windows projects should be linked with the *win32lib* library, 
 after that the usage is as follows:
 ```
-	auto opt_kernel32 = ddl::win32::library(g_kernel32_map, "kernel32.dll");
-	assert(opt_kernel32);
-	auto& kernel32_ddl = *opt_kernel32;
-	kernel32_ddl["CreateFileW"_eid](L"blabla", GENERIC_ALL, 0, nullptr, OPEN_EXISTING, 0, NULL);
+auto opt_kernel32 = ddl::win32::library(g_kernel32_map, "kernel32.dll");
+assert(opt_kernel32);
+auto& kernel32_ddl = *opt_kernel32;
+kernel32_ddl["CreateFileW"_eid](L"blabla", GENERIC_ALL, 0, nullptr, OPEN_EXISTING, 0, NULL);
 ```
 The line
 > auto opt_kernel32 = ddl::win32::library(g_kernel32_map, "kernel32.dll");
@@ -73,9 +73,6 @@ And finally this line locates the desired function in the dll and returns a poin
 
 #### Linux\POSIX
 *Not supported yet*
-
-## Dependencies
-Other than [LlvmForVs2017](https://github.com/WubbaLubba/LlvmForVS2017) **DecDynLib** has no external dependencies although there is a possibilty that the tests will use externel testing library in the future.
 
 ## Author
 - **Noam Arye Nassi** - [WubbaLubba](https://github.com/WubbaLubba)
