@@ -74,9 +74,6 @@ And finally this line locates the desired function in the dll and returns a poin
 #### Linux\POSIX
 *Not supported yet*
 
-## Dependencies
-Other than [LlvmForVs2017](https://github.com/WubbaLubba/LlvmForVS2017) **DecDynLib** has no external dependencies although there is a possibilty that the tests will use externel testing library in the future.
-
 ## Author
 - **Noam Arye Nassi** - [WubbaLubba](https://github.com/WubbaLubba)
 

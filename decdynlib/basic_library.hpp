@@ -49,6 +49,11 @@ namespace ddl
 				Platform::traits::locate(m_lib, Id::value));
 		}
 
+		auto get_raw_handle() const
+		{
+			return m_lib;
+		}
+
 	private:
 		friend Platform;
 

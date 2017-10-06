@@ -83,8 +83,8 @@
       <BufferSecurityCheck />
       <MinimalRebuild />
       <LanguageStandard>stdcpplatest</LanguageStandard>
-      <AdditionalOptions>-Xclang -Wno-gnu-string-literal-operator-template %(AdditionalOptions)</AdditionalOptions>
       <WholeProgramOptimization />
+      <AdditionalOptions>-Xclang -Wno-gnu-string-literal-operator-template %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -99,8 +99,8 @@
       <BufferSecurityCheck />
       <MinimalRebuild />
       <LanguageStandard>stdcpplatest</LanguageStandard>
-      <AdditionalOptions>-Xclang -Wno-gnu-string-literal-operator-template %(AdditionalOptions)</AdditionalOptions>
       <WholeProgramOptimization />
+      <AdditionalOptions>-Xclang -Wno-gnu-string-literal-operator-template %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -116,8 +116,8 @@
       <BufferSecurityCheck />
       <MinimalRebuild />
       <LanguageStandard>stdcpplatest</LanguageStandard>
-      <AdditionalOptions>-Xclang -Wno-gnu-string-literal-operator-template %(AdditionalOptions)</AdditionalOptions>
       <WholeProgramOptimization />
+      <AdditionalOptions>-Xclang -Wno-gnu-string-literal-operator-template %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
@@ -137,8 +137,8 @@
       <BufferSecurityCheck />
       <MinimalRebuild />
       <LanguageStandard>stdcpplatest</LanguageStandard>
-      <AdditionalOptions>-Xclang -Wno-gnu-string-literal-operator-template %(AdditionalOptions)</AdditionalOptions>
       <WholeProgramOptimization />
+      <AdditionalOptions>-Xclang -Wno-gnu-string-literal-operator-template %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
