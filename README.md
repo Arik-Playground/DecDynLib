@@ -48,23 +48,18 @@ Using the export map from before is quite easy with platform libraries
 Windows projects should be linked with the *win32lib* library, 
 after that the usage is as follows:
 ```
-auto opt_kernel32 = ddl::win32::library(g_kernel32_map, "kernel32.dll");
-assert(opt_kernel32);
+auto opt_kernel32 = ddl::win32::load_library(g_kernel32_map, DLL_PATH);
 auto& kernel32_ddl = *opt_kernel32;
 kernel32_ddl["CreateFileW"_eid](L"blabla", GENERIC_ALL, 0, nullptr, OPEN_EXISTING, 0, NULL);
 ```
 The line
-> auto opt_kernel32 = ddl::win32::library(g_kernel32_map, "kernel32.dll");
+> auto opt_kernel32 = ddl::win32::load_library(g_kernel32_map, DLL_PATH);
 
 loads the library and assigning it the g_kernel32_map export map that we have defined before.
 
-> assert(opt_kernel32);
-
-ddl::win32::library returns an optional that can be checked for its validity
-
 > auto& kernel32_ddl = *opt_kernel32;
 
-this line extracts the library from the optional
+this line extracts the library from the optional return variable.
 
 > kernel32_ddl["CreateFileW"_eid](L"blabla", GENERIC_ALL, 0, nullptr, OPEN_EXISTING, 0, NULL);
 
